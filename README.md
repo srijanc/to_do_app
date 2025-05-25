@@ -20,7 +20,12 @@ cd to_do_app
 npm install
 ```
 
-#### Install Tailwind CSS
+#### Run and Test the base build
+```bash
+npm run dev
+```
+
+#### Install and Initialise Tailwind CSS
 ```bash
 npm install -D tailwindcss@3 postcss autoprefixer
 npx tailwindcss init -p
@@ -55,6 +60,16 @@ npm install --save-dev @testing-library/react @testing-library/jest-dom vitest
     "test": "vitest"
 }
 ```
+### Convert to TypeScript
+- Using Vitest:
+```bash
+npm install --save-dev vitest @vitest/ui @testing-library/react @testing-library/jest-dom jsdom @types/jest
+```
+- For `uuid` library
+```bash
+npm install uuid
+npm install --save-dev @types/uuid
+```
 
 ### General Project Structure
 ```bash
@@ -73,3 +88,11 @@ src/
 ├── styles/          # Tailwind or custom CSS if needed
 ├── tests/           # Unit tests
 ```
+
+### UI Components
+- `TaskInput` – Add task
+- `TaskItem` – Each to-do task
+- `TaskList` – Shows all tasks
+- `TaskFilter` – All / Active / Completed
+- `TaskSort` – Ascending / Descending
+- `Layout` – Page layout
