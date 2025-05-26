@@ -1,6 +1,6 @@
 import { Task } from "../features/tasks/types";
 
-const STORAGE_KEY = "todo_tasks";
+const STORAGE_KEY = "to_do_tasks";
 
 export const TaskService = {
     getTasks(): Task[] {
