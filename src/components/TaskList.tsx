@@ -7,7 +7,7 @@ type Filter = 'all' | 'active' | 'completed';
 const TaskList = () => {
     const { tasks } = useTasks();
     const [filter, setFilter] = useState<Filter>('all');
-    const [sortAsc, setSortAsc] = useState(true);
+    const [sortAsc, setSortAsc] = useState<boolean>(true);
 
     const filteredTasks = useMemo(() => {
         let filtered = tasks;
