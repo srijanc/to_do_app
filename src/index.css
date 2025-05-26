@@ -67,10 +67,15 @@ button {
 }
 
 
-/* Toggle, filters, and sort buttons */
-button.active {
-    @apply bg-zinc-700 text-green-500;
+/* Filters buttons */
+.btn-filter-active {
+    @apply bg-green-700 text-white;
 }
+
+.btn-filter-inactive {
+    @apply bg-gray-700 text-white hover:bg-gray-600;
+}
+
 
 /* Task Item Container */
 .task-item {
