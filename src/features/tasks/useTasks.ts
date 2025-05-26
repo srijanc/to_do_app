@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
-import { Task } from "./types";
+import { Task } from "../../types/Task";
 import { TaskService } from "../../services/taskService";
 import { v4 as uuidv4 } from "uuid";
 
