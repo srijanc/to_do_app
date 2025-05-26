@@ -20,11 +20,6 @@ cd to_do_app
 npm install
 ```
 
-#### Run and Test the base build
-```bash
-npm run dev
-```
-
 #### Install and Initialise Tailwind CSS
 ```bash
 npm install -D tailwindcss@3 postcss autoprefixer
@@ -71,28 +66,12 @@ npm install uuid
 npm install --save-dev @types/uuid
 ```
 
-### General Project Structure
+#### Run the application locally
 ```bash
-src/
-├── components/      # UI components
-├── features/        # Task-specific logic
-│   └── tasks/
-│       ├── components/
-│       ├── hooks/
-│       ├── types.ts
-│       ├── utils.ts
-│       └── taskSlice.ts # (if using Zustand or Redux later)
-├── services/        # Persistence layer (localStorage)
-├── App.tsx
-├── main.tsx
-├── styles/          # Tailwind or custom CSS if needed
-├── tests/           # Unit tests
+npm run dev
 ```
 
-### UI Components
-- `TaskInput` – Add task
-- `TaskItem` – Each to-do task
-- `TaskList` – Shows all tasks
-- `TaskFilter` – All / Active / Completed
-- `TaskSort` – Ascending / Descending
-- `Layout` – Page layout
+#### Build the application
+```bash
+npm run build
+```
