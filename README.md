@@ -41,11 +41,7 @@ content: [
 @tailwind components;
 @tailwind utilities;
 ```
-- Install Dependencies
-```bash
-npm install uuid
-npm install --save-dev @testing-library/react @testing-library/jest-dom vitest
-```
+
 - Add any missing properties of scripts to `package.json`:
 ```bash
 "scripts": {
@@ -55,15 +51,33 @@ npm install --save-dev @testing-library/react @testing-library/jest-dom vitest
     "test": "vitest"
 }
 ```
-### Convert to TypeScript
-- Using Vitest:
-```bash
-npm install --save-dev vitest @vitest/ui @testing-library/react @testing-library/jest-dom jsdom @types/jest
-```
+
 - For `uuid` library
 ```bash
 npm install uuid
 npm install --save-dev @types/uuid
+```
+
+### Setup Test env
+- For `TypeScript`:
+```bash
+npm install --save-dev ts-node typescript
+```
+
+- Using `jest`:
+```bash
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event @types/jest ts-jest
+npm install --save-dev jest-environment-jsdom
+```
+
+- Run test:
+```bash
+npm run test
+```
+
+- Run test with code coverage
+```bash
+npm run test -- --coverage
 ```
 
 #### Run the application locally
