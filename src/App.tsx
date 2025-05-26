@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 type Task = {
@@ -10,14 +10,49 @@ type Task = {
 
 type Filter = 'all' | 'active' | 'completed';
 
+const STORAGE_KEY = 'to_do_tasks';
+
+const getInitialTasks = (): Task[] => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+
+    if (stored) {
+        try {
+            return JSON.parse(stored) as Task[];
+        } catch {
+            console.warn('Invalid task data in localStorage.');
+        }
+    }
+    return [];
+};
+
 const App: React.FC = () => {
-    const [tasks, setTasks] = useState<Task[]>([]);
+    const [tasks, setTasks] = useState<Task[]>(getInitialTasks);
     const [newTaskText, setNewTaskText] = useState<string>('');
     const [filter, setFilter] = useState<Filter>('all');
     const [sortAsc, setSortAsc] = useState<boolean>(true);
 
+    // Load tasks from localStorage on first mount
+    useEffect(() => {
+        const stored = localStorage.getItem(STORAGE_KEY);
+
+        if (stored) {
+            try {
+                const parsed = JSON.parse(stored) as Task[];
+                setTasks(parsed);
+            } catch {
+                console.warn('Invalid task data in localStorage.');
+            }
+        }
+    }, []);
+
+    // Save tasks to localStorage on change
+    useEffect(() => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    }, [tasks]);
+
     const addTask = () => {
         const trimmedText = newTaskText.trim();
+
         if (trimmedText) {
             const newTask: Task = {
                 id: uuidv4(),
