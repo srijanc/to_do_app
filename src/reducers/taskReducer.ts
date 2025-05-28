@@ -1,10 +1,4 @@
-import { Task } from '../types/Task';
-
-export type TaskAction =
-    | { type: 'ADD_TASK'; payload: Task }
-    | { type: 'DELETE_TASK'; payload: string }
-    | { type: 'TOGGLE_TASK'; payload: string }
-    | { type: 'LOAD_TASKS'; payload: Task[] };
+import { Task, TaskAction } from '../types/Task';
 
 export const taskReducer = (state: Task[], action: TaskAction): Task[] => {
     switch (action.type) {
